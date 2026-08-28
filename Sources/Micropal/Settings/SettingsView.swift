@@ -92,9 +92,12 @@ struct SettingsView: View {
                     Text(launchAtLoginError).font(.caption).foregroundStyle(.red)
                 }
             } footer: {
-                HStack {
-                    Text("Microduck Desktop — an homage to Pollen Robotics' Microduck")
-                        .font(.caption).foregroundStyle(.secondary)
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Micropal — an homage to [Microduck](https://pollen-robotics.com/microduck/) by [Pollen Robotics](https://pollen-robotics.com/)")
+                        Text("Created by [@ATMartin](https://github.com/ATMartin)")
+                    }
+                    .font(.caption).foregroundStyle(.secondary)
                     Spacer()
                     Button("Quit") { NSApp.terminate(nil) }
                 }

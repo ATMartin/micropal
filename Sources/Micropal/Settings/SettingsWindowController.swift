@@ -7,7 +7,7 @@ final class SettingsWindowController {
     init(store: SettingsStore) {
         let hosting = NSHostingController(rootView: SettingsView(store: store))
         window = NSWindow(contentViewController: hosting)
-        window.title = "Microduck Settings"
+        window.title = "Micropal Settings"
         window.styleMask = [.titled, .closable, .miniaturizable]
         // Reopening a closed-and-released window crashes; keep it around.
         window.isReleasedWhenClosed = false

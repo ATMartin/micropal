@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "MicroduckDesktop",
+    name: "Micropal",
     platforms: [.macOS(.v13)],
     targets: [
         .executableTarget(
-            name: "MicroduckDesktop",
-            path: "Sources/MicroduckDesktop"
+            name: "Micropal",
+            path: "Sources/Micropal"
         )
     ]
 )

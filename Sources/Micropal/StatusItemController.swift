@@ -19,7 +19,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         super.init()
 
         statusItem.button?.image = Self.duckHeadTemplate()
-        statusItem.button?.toolTip = "Microduck Desktop"
+        statusItem.button?.toolTip = "Micropal"
 
         let menu = NSMenu()
         menu.delegate = self
@@ -40,7 +40,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
 
         menu.addItem(.separator())
 
-        let quit = NSMenuItem(title: "Quit Microduck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        let quit = NSMenuItem(title: "Quit Micropal", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         menu.addItem(quit)
 
         statusItem.menu = menu

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Renders the app icon from the duck's own vector drawing code.
-# Usage: Scripts/make-icon.sh <MicroduckDesktop-binary> <output.icns>
+# Usage: Scripts/make-icon.sh <Micropal-binary> <output.icns>
 set -euo pipefail
 
 BIN="${1:?usage: make-icon.sh <binary> <output.icns>}"

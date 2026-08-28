@@ -1,8 +1,8 @@
 import AppKit
 
 // CLI rendering modes (used by the icon build script and for verification):
-//   MicroduckDesktop --render-icon <path> <pixels> [colorwayIndex] [styleIndex]
-//   MicroduckDesktop --render-duck <path> <pixels> [colorwayIndex] [styleIndex]
+//   Micropal --render-icon <path> <pixels> [colorwayIndex] [styleIndex]
+//   Micropal --render-duck <path> <pixels> [colorwayIndex] [styleIndex]
 // Otherwise: run the menu-bar pet app. `--debug` logs state every 2 s.
 
 let arguments = CommandLine.arguments
@@ -19,7 +19,7 @@ func parseRender(flag: String) -> (path: String, pixels: Int, colorway: Int, sty
 if arguments.contains("--render-icon") || arguments.contains("--render-duck") {
     let iconMode = arguments.contains("--render-icon")
     guard let req = parseRender(flag: iconMode ? "--render-icon" : "--render-duck") else {
-        fputs("usage: MicroduckDesktop --render-icon|--render-duck <path> <pixels> [colorway 0-3] [style 0-2]\n", stderr)
+        fputs("usage: Micropal --render-icon|--render-duck <path> <pixels> [colorway 0-3] [style 0-2]\n", stderr)
         exit(2)
     }
     _ = NSApplication.shared // initialize AppKit for offscreen drawing

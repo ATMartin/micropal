@@ -1,6 +1,6 @@
 import AppKit
 
-/// The parameterized colors of a Microduck. Pastel plastic shells over black robotics.
+/// The parameterized colors of a Micropal. Pastel plastic shells over black robotics.
 struct DuckPalette: Equatable {
     var shell: NSColor      // head + body + thigh plates
     var accent: NSColor     // beak lip + trim
