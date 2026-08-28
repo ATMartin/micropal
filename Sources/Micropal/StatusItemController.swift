@@ -28,7 +28,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         settings.target = self
         menu.addItem(settings)
 
-        pauseItem = NSMenuItem(title: "Pause Duck", action: #selector(togglePause), keyEquivalent: "")
+        pauseItem = NSMenuItem(title: "Pause Pal", action: #selector(togglePause), keyEquivalent: "")
         pauseItem.target = self
         menu.addItem(pauseItem)
 
@@ -47,7 +47,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
     }
 
     func menuNeedsUpdate(_ menu: NSMenu) {
-        pauseItem.title = petController.paused ? "Resume Duck" : "Pause Duck"
+        pauseItem.title = petController.paused ? "Resume Pal" : "Pause Pal"
         loginItem.state = store.launchAtLoginEnabled ? .on : .off
         loginItem.isEnabled = SettingsStore.canManageLaunchAtLogin
     }

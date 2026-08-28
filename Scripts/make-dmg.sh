@@ -26,7 +26,7 @@ Micropal
    isn't notarized by Apple (it's a free community build).
    On macOS 15+, if that is refused: open System Settings > Privacy &
    Security, scroll down, and click "Open Anyway".
-3. A little duck appears at the bottom of your screen, and a duck icon
+3. A little pal appears at the bottom of your screen, and its icon
    appears in the menu bar. Use the menu bar icon for settings (colors,
    size, behaviors) or to quit.
 
