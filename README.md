@@ -1,4 +1,4 @@
-# Micropal 🦆
+# <img src="docs/icon.png" width="40" alt="Micropal app icon"> Micropal
 
 A tiny desktop companion for macOS, lovingly inspired by [Pollen Robotics' Microduck](https://pollen-robotics.com/microduck/) — the 25 cm open-source biped robot you train with reinforcement learning.
 

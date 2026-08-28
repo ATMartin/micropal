@@ -11,7 +11,8 @@ mkdir -p dist
 rm -f dist/Micropal.dmg dist/Micropal.zip
 
 STAGE="$(mktemp -d)"
-trap 'rm -rf "$STAGE"' EXIT
+TMP="$(mktemp -d)"
+trap 'rm -rf "$STAGE" "$TMP"' EXIT
 
 cp -R "$APP" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
@@ -33,8 +34,17 @@ Enjoy your Micropal!
 EOF
 
 echo "==> Creating dist/Micropal.dmg"
-hdiutil create -volname "Micropal" -srcfolder "$STAGE" -ov -format UDZO \
-    dist/Micropal.dmg
+# Give the mounted volume the app icon: bundle a .VolumeIcon.icns, then flip
+# the custom-icon Finder bit on the volume root (needs a read-write image,
+# so build UDRW first and compress to UDZO after).
+cp "$APP/Contents/Resources/AppIcon.icns" "$STAGE/.VolumeIcon.icns"
+hdiutil create -volname "Micropal" -srcfolder "$STAGE" -ov -format UDRW \
+    "$TMP/Micropal-rw.dmg"
+MOUNT="$(hdiutil attach "$TMP/Micropal-rw.dmg" -readwrite -noverify -noautoopen \
+    | grep -o '/Volumes/.*')"
+SetFile -a C "$MOUNT"
+hdiutil detach "$MOUNT" >/dev/null
+hdiutil convert "$TMP/Micropal-rw.dmg" -format UDZO -ov -o dist/Micropal.dmg
 
 echo "==> Creating dist/Micropal.zip"
 ditto -c -k --keepParent "$APP" dist/Micropal.zip
