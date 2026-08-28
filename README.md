@@ -33,11 +33,15 @@ Side by side in Teal:
 - **Customizable** via the menu bar duck: the four official colorways or fully custom colors, size, activity level, and per-behavior toggles
 - **Launch at login**, pause/resume, zero permissions required, ~5 MB, native Swift
 
-## Install (for recipients)
+## Install
+
+**[⬇ Download the latest Micropal.dmg](https://github.com/ATMartin/micropal/releases/latest)** — universal binary, runs on Apple silicon and Intel Macs (macOS 13+).
 
 1. Open `Micropal.dmg` and drag the app to Applications.
 2. **First launch**: right-click the app → **Open** → **Open**. (The app is ad-hoc signed, not notarized — this one-time step tells Gatekeeper you trust it. On macOS 15+ you may instead need System Settings → Privacy & Security → "Open Anyway".)
 3. Look for the duck in your menu bar and at the bottom of your screen.
+
+Prefer not to run unsigned downloads? Build it yourself below — a local build skips the Gatekeeper step entirely.
 
 ## Build from source
 
@@ -50,6 +54,14 @@ Scripts/make-dmg.sh               # package dist/Micropal.dmg + .zip
 ```
 
 Add `--universal` to `build-app.sh` for a combined Apple silicon + Intel binary.
+
+### Cutting a release
+
+Push a `v*` tag and [the release workflow](.github/workflows/release.yml) builds a universal app on a macOS runner and publishes the `.dmg` + `.zip` to [Releases](https://github.com/ATMartin/micropal/releases):
+
+```bash
+git tag v0.1.0 && git push origin v0.1.0
+```
 
 Handy dev flags:
 
